@@ -2,6 +2,11 @@
 const express = require("express");
 const db = require("./backend/database/dbConnector");
 
+const server = express();
+const bodyParser = require("body-parser");
+const CORS = require("cors");
+
+
 //2. crear la instancia de express
 const server = express();
 //3. agregar middlewares globales
@@ -13,3 +18,17 @@ const PORT = process.env.APP_PORT ? process.env.APP_PORT : 3000;
 server.listen(PORT, () => {
     console.log(`servidor iniciado en ${PORT}`);
 });
+
+// ERROR DETECTION
+server.use((err, req, res, next) => {
+    if (!err) {
+      return next();
+    } else if (err.name === "JsonWebTokenError") {
+      console.log(err);
+      res.status(400).json(`Error: ${err.message}`);
+    } else if (err.name === "TokenExpiredError") {
+      res.status(401).json("Token has expired. Please login again");
+    } else {
+      console.log("An error has occurred", err), res.status(500).send("Error");
+    }
+  });
