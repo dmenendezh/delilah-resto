@@ -2,7 +2,6 @@ const { DataTypes } = require ('sequelize');
 const sequelize = require ('../database/dbConnector');
 const orders = require('./Orders');
 
-
 const usuarios = sequelize.define('users', {
     usr_login: {
         type: DataTypes.STRING,

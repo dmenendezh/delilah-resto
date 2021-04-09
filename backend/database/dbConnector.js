@@ -7,6 +7,7 @@ const DB_USER = process.env.DB_USER; //root;
 
 const DB_STR_CONN = `mysql://${DB_USER}@${DB_HOST}:${DB_PORT}/${DB_NAME}`;
 
+
 console.log(DB_STR_CONN);
 
 

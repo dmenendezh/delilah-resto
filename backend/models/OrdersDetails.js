@@ -14,6 +14,7 @@ const orderDetails = sequelize.define('orders_details', {
             model:pedidos,
             key:'order_id'
         }
+        
     },
     od_product_id: {
         type: DataTypes.INTEGER,

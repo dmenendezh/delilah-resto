@@ -9,6 +9,7 @@ const validarDatos = (req, res, next) => {
             res.status(404).json({
                 error: `Error: Debe completar todos los datos para poder continuar.`
             });
+            
 
         } else {
            next();

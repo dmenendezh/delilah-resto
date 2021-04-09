@@ -1,7 +1,6 @@
 const { DataTypes } = require ('sequelize');
 const sequelize = require ('../database/dbConnector');
 
-
 const productos = sequelize.define('products', {
     prd_name: {
         type: DataTypes.STRING,

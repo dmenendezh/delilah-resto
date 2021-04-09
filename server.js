@@ -20,6 +20,7 @@ server.listen(PORT, () => {
     console.log(`servidor iniciado en ${PORT}`);
 });
 
+
 // ERROR DETECTION
 server.use((err, req, res, next) => {
     if (!err) {

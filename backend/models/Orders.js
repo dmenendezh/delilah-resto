@@ -4,6 +4,7 @@ const formasPago = require('./PaymentType');
 const ordersDetails = require('./OrdersDetails.js');
 const productos = require('./Products');
 
+
 const pedidos = sequelize.define('orders', {
     order_user: {
         type: DataTypes.STRING,
