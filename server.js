@@ -7,10 +7,11 @@ const bodyParser = require("body-parser");
 const CORS = require("cors");
 
 
-//2. crear la instancia de express
-const server = express();
 //3. agregar middlewares globales
 server.use(express.json()); // parsear el body a un objeto
+
+server.use('/login', require('./backend/routes/login'));
+
 
 const PORT = process.env.APP_PORT ? process.env.APP_PORT : 3000;
 
