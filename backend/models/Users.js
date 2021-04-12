@@ -1,6 +1,6 @@
 const { DataTypes } = require ('sequelize');
 const sequelize = require ('../database/dbConnector');
-const orders = require('./Orders');
+const orders = require('../models/Orders');
 
 const usersModel = sequelize.define('users', {
     usr_login: {
@@ -39,9 +39,9 @@ const usersModel = sequelize.define('users', {
 /*usuarios.belongsTo(rol,{
     foreignKey:'rol_id'
 });*/
-
+/*
 usersModel.hasMany(orders,{
     foreignKey:'usr_login'
-});
+});*/
 
 module.exports = {sequelize, usersModel};

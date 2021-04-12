@@ -1,11 +1,13 @@
 const { DataTypes } = require ('sequelize');
 const sequelize = require ('../database/dbConnector');
-const formasPago = require('./PaymentType');
-const ordersDetails = require('./OrdersDetails.js');
-const productos = require('./Products');
 
-
-const pedidos = sequelize.define('orders', {
+const ordersModel = sequelize.define('orders', {
+    order_id:{
+        type: DataTypes.INTEGER,
+        allowNull:false,
+        primaryKey: true,
+        autoIncrement: true,
+    },
     order_user: {
         type: DataTypes.STRING,
         allowNull:false
@@ -30,9 +32,9 @@ const pedidos = sequelize.define('orders', {
     timestamps: false
   });
 
-pedidos.belongsToMany(productos, {
+/*pedidos.belongsToMany(productos, {
     through: ordersDetails
-});
+});*/
 
 
-module.exports = pedidos;
+module.exports = {sequelize, ordersModel};

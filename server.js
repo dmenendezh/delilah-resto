@@ -11,8 +11,17 @@ const CORS = require("cors");
 server.use(express.json()); // parsear el body a un objeto
 server.use(bodyParser.json());
 
-server.use('/login', require('./backend/routes/login'));
-server.use('/register', require('./backend/routes/register'));
+/*users API*/
+server.use('/login', require('./backend/routes/users/login'));
+server.use('/register', require('./backend/routes/users/register'));
+
+/*products API */
+server.use('/list/products', require('./backend/routes/products/list'));
+server.use('/create/products', require('./backend/routes/products/create'));
+
+/*orders API */
+server.use('/list/orders', require('./backend/routes/orders/list'));
+
 
 const PORT = process.env.APP_PORT ? process.env.APP_PORT : 3000;
 

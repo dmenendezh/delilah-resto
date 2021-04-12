@@ -1,7 +1,13 @@
 const { DataTypes } = require ('sequelize');
 const sequelize = require ('../database/dbConnector');
 
-const productos = sequelize.define('products', {
+const productModel = sequelize.define('products', {
+    prd_id_auto: {
+        type: DataTypes.INTEGER,
+        allowNull:false,
+        primaryKey: true,
+        autoIncrement: true,
+    },
     prd_name: {
         type: DataTypes.STRING,
         allowNull:false
@@ -22,4 +28,4 @@ const productos = sequelize.define('products', {
     timestamps: false
   });
 
-module.exports = productos;
+module.exports = {sequelize, productModel};
