@@ -25,10 +25,9 @@ router.post('/', async (req, res) => {
     if(getUser[0].usr_password !== usr_password) {
         return res.json({ message: 'Username or password does not match!'})
     }
+    const jwtToken = jwt.sign({usr_login: getUser[0].usr_login, usr_email: getUser[0].usr_email, admin: getUser[0].usr_admin_flag }, process.env.TOKENSECRET);
 
-    const jwtToken = jwt.sign({usr_login: getUser[0].usr_login, usr_email: getUser[0].usr_email, admin: false }, process.env.TOKENSECRET);
-
-    res.json({ message: 'Welcome back!', token: jwtToken });
+    res.json({ message: 'Welcome!', token: jwtToken });
 });
 
 module.exports = router

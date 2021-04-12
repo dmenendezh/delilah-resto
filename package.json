@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/dmenendezh/delilah-resto.git"
   },
-  
+
   "author": "dmenendezh",
   "license": "ISC",
   "dependencies": {

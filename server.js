@@ -9,9 +9,10 @@ const CORS = require("cors");
 
 //3. agregar middlewares globales
 server.use(express.json()); // parsear el body a un objeto
+server.use(bodyParser.json());
 
 server.use('/login', require('./backend/routes/login'));
-
+server.use('/register', require('./backend/routes/register'));
 
 const PORT = process.env.APP_PORT ? process.env.APP_PORT : 3000;
 

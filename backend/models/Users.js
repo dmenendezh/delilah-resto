@@ -2,10 +2,11 @@ const { DataTypes } = require ('sequelize');
 const sequelize = require ('../database/dbConnector');
 const orders = require('./Orders');
 
-const usuarios = sequelize.define('users', {
+const usersModel = sequelize.define('users', {
     usr_login: {
         type: DataTypes.STRING,
-        allowNull:false
+        allowNull:false,
+        primaryKey: true
     },
     usr_full_name: {
         type: DataTypes.STRING,
@@ -39,8 +40,8 @@ const usuarios = sequelize.define('users', {
     foreignKey:'rol_id'
 });*/
 
-usuarios.hasMany(pedidos,{
-    foreignKey:'usuarios_id'
+usersModel.hasMany(orders,{
+    foreignKey:'usr_login'
 });
 
-module.exports = usuarios;
+module.exports = {sequelize, usersModel};
