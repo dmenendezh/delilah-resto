@@ -1,7 +1,7 @@
 const { DataTypes } = require ('sequelize');
 const sequelize = require ('../database/dbConnector');
-const pedidos = require('./Orders');
-const productos = require('./Products');
+const Orders = require('./Orders');
+const Products = require('./Products');
 
 const orderDetails = sequelize.define('orders_details', {
     od_quantity: {
@@ -11,7 +11,7 @@ const orderDetails = sequelize.define('orders_details', {
     od_order_id: {
         type: DataTypes.INTEGER,
         references: {
-            model:pedidos,
+            model:Orders,
             key:'order_id'
         }
         
@@ -19,12 +19,13 @@ const orderDetails = sequelize.define('orders_details', {
     od_product_id: {
         type: DataTypes.INTEGER,
         references: {
-            model:productos,
+            model:Products,
             key:'prd_id_auto'
         }
     }
 }, {
-    timestamps: false
+    timestamps: false,
+    underscored: true
   });
 
 module.exports = orderDetails;

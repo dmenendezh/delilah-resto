@@ -29,12 +29,8 @@ const ordersModel = sequelize.define('orders', {
         allowNull:true
     }
 }, {
-    timestamps: false
+    timestamps: false,
+    underscored: true
   });
-
-/*pedidos.belongsToMany(productos, {
-    through: ordersDetails
-});*/
-
 
 module.exports = {sequelize, ordersModel};

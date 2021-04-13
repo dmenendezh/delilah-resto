@@ -3,24 +3,22 @@ const express = require("express");
 
 const server = express();
 const bodyParser = require("body-parser");
-const product = require("./backend/routes/products/update");
-
 
 //3. agregar middlewares globales
 server.use(express.json()); // parsear el body a un objeto
 server.use(bodyParser.json());
 
-/*users API*/
+/*users routes*/
 server.use('/login', require('./backend/routes/users/login'));
 server.use('/register', require('./backend/routes/users/register'));
 
-/*products API */
+/*products routes */
 server.use('/products/list', require('./backend/routes/products/list'));
 server.use('/products/create', require('./backend/routes/products/create'));
 server.use('/products/update', require('./backend/routes/products/update'));
 server.use('/products/delete', require('./backend/routes/products/delete'));
 
-/*orders API */
+/*orders routes */
 server.use('/orders/list', require('./backend/routes/orders/list'));
 server.use('/orders/create', require('./backend/routes/orders/create'));
 
@@ -29,7 +27,7 @@ const PORT = process.env.APP_PORT ? process.env.APP_PORT : 3000;
 
 //5. levantar el servidor
 server.listen(PORT, () => {
-    console.log(`servidor iniciado en ${PORT}`);
+    console.log(`Server started on port ${PORT}`);
 });
 
 
