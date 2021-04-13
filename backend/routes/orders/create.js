@@ -1,24 +1,22 @@
 const { Router } = require('express');
 const router = Router();
-const Products = require('../../models/Products');
+const Orders = require('../../models/Orders');
 
 
 router.post('/', async (req, res) => {
-    const prdData = req.body;
-    console.log(prdData);
+    const orderData = req.body;
     
-    const newProduct = await Products.productModel.create(prdData)
+    const newOrder = await Orders.ordersModel.create(orderData)
     .catch(err => {
-        console.log('Unable to create product.');
+        console.log('Unable to create the order.');
         throwException(err, res);
     });
 
     res.status(201).json({
-        message: 'Product created.',
-        newProduct
+        message: 'Order created.',
+        newOrder
     });
 });
-
 
 const throwException = (err, res) => {
     res.status(500).json({

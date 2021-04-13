@@ -1,10 +1,9 @@
 //1. importar express y demas librerias
 const express = require("express");
-const db = require("./backend/database/dbConnector");
 
 const server = express();
 const bodyParser = require("body-parser");
-const CORS = require("cors");
+const product = require("./backend/routes/products/update");
 
 
 //3. agregar middlewares globales
@@ -16,11 +15,14 @@ server.use('/login', require('./backend/routes/users/login'));
 server.use('/register', require('./backend/routes/users/register'));
 
 /*products API */
-server.use('/list/products', require('./backend/routes/products/list'));
-server.use('/create/products', require('./backend/routes/products/create'));
+server.use('/products/list', require('./backend/routes/products/list'));
+server.use('/products/create', require('./backend/routes/products/create'));
+server.use('/products/update', require('./backend/routes/products/update'));
+server.use('/products/delete', require('./backend/routes/products/delete'));
 
 /*orders API */
-server.use('/list/orders', require('./backend/routes/orders/list'));
+server.use('/orders/list', require('./backend/routes/orders/list'));
+server.use('/orders/create', require('./backend/routes/orders/create'));
 
 
 const PORT = process.env.APP_PORT ? process.env.APP_PORT : 3000;

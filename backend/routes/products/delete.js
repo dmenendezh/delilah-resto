@@ -2,23 +2,16 @@ const { Router } = require('express');
 const router = Router();
 const Products = require('../../models/Products');
 
-
-router.post('/', async (req, res) => {
-    const prdData = req.body;
-    console.log(prdData);
-    
-    const newProduct = await Products.productModel.create(prdData)
-    .catch(err => {
-        console.log('Unable to create product.');
-        throwException(err, res);
-    });
+router.delete('/:id', async (req, res) => {
+    const deletedPrd = await Products.productModel
+    .destroy({ where: { prd_id_auto: req.params.id } })
+    .catch(err => throwException(err, res));
 
     res.status(201).json({
-        message: 'Product created.',
-        newProduct
+        message: 'Products deleted:',
+        deletedPrd
     });
 });
-
 
 const throwException = (err, res) => {
     res.status(500).json({
