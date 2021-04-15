@@ -7,7 +7,7 @@ Delilah Resto - Sprint 3 Project
 5. Abrir el cliente 'MySQL Workbench' y ejecute el archivo delilah-resto-db-creation.sql, el cual creara la base de datos con cada uno de los objetos correspondientes.
 
 6. Dentro del proyecto bajado en Visual Studio, configurar el archivo con nombre .env, con la información que corresponda y fue configurada en su PC:
-7. 
+
       APP_PORT=3000
       DB_HOST=localhost
       DB_PORT=3306
