@@ -3,8 +3,9 @@ const router = Router();
 const Orders = require('../../models/Orders');
 const mdGlobal = require('../../middlewares/mdGlobal');
 const mdUsers = require('../../middlewares/mdUsers');
+const mdOrders = require('../../middlewares/mdOrders');
 
-router.put('/:id', mdGlobal.validateToken, mdGlobal.checkBody, mdUsers.userRol, async (req, res) => {
+router.put('/:id', mdGlobal.validateToken, mdGlobal.checkBody, mdOrders.checkStatusSendend, mdUsers.userRol, async (req, res) => {
     const order_status = req.body.order_status;
 
     const updatedOrder = await Orders.ordersModel

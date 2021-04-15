@@ -22,7 +22,8 @@ const ordersModel = sequelize.define('orders', {
     },
     order_status: {
         type: DataTypes.STRING,
-        allowNull:false
+        allowNull: false,
+        values: ['Nuevo', 'Confirmado', 'Preparando', 'Enviando', 'Entregado']
     },
     order_payment_type: {
         type: DataTypes.STRING,

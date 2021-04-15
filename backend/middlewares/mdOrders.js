@@ -42,5 +42,24 @@ mdOrders.checkDataSended = async (req, res, next) => {
     }
 }
 
+mdOrders.checkStatusSendend = (req, res, next) => {
+    const status = req.body.order_status;
+    console.log(status);
+    if(typeof(status) !== 'string') {
+        res.status(400).json({
+            message: 'There was a problem with the state provided'
+        });
+    } else {
+        const possibleStatus = ['Nuevo', 'Confirmado', 'Preparando', 'Enviando', 'Entregado'];
+        if(possibleStatus.includes(status)){
+            next();
+        }else{
+            res.status(400).json({
+                message: 'Invalid status sendend.'
+            });
+        }
+        
+    }
+};
 
 module.exports = mdOrders;

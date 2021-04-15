@@ -12,6 +12,11 @@ mdGlobal.checkBody = (req, res, next) => {
     }
 };
 
+//Funciones auxiliares
+function isObjEmpty(obj) {
+    return Object.entries(obj).length === 0;
+}
+
 mdGlobal.validateToken = (req, res, next) => {
     const token = req.headers.authorization;
     const tokenVerified = JWT.verify(token, JWTSign, (error, decoded) => {
