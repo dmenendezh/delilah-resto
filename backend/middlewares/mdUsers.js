@@ -1,54 +1,53 @@
 const database = require('../database/dbConnector');
 const mdUsers = {};
+const Users = require('../models/Users');
 
-mdUsers.requireRegisterData = async (req, res, next) => {
-    const userName = req.body.userName;
-    const password = req.body.password;
-    const fullName = req.body.fullName;
-    const email = req.body.email;
-    const phoneNumber = req.body.phoneNumber;
-    const address = req.body.address;
+mdUsers.checkRequiredData = async (req, res, next) => {
+    const fullName = req.body.usr_full_name;
+    const usrPhone = req.body.usr_phone;
+    const usrAddress = req.body.usr_address;
+    const usrPassword = req.body.usr_password;
 
-    if(typeof(userName) !== 'string') {
+    const usr_admin_flag = req.body.usr_admin_flag;
+    const usrEmail = req.body.usr_email;
+    console.log(typeof(usr_admin_flag));
+
+    if(typeof(fullName) !== 'string') {
         res.status(400).json({
-            message: 'There was a problem with the username provided'
+            message: 'Error with user sendend'
         });
-    } else if (typeof(password) !== 'string') {
+    } else if (typeof(usrPassword) !== 'string') {
         res.status(400).json({
-            message: 'There was a problem with the password provided'
+            message: 'Error with password sendend'
         });
-    } else if (typeof(fullName) !== 'string') {
+    } else if (typeof(usrEmail) !== 'string') {
         res.status(400).json({
-            message: 'There was a problem with the name provided'
+            message: 'Error with email sendend'
         });
-    } else if (typeof(email) !== 'string') {
+    } else if (typeof(usrPhone) !== 'string') {
         res.status(400).json({
-            message: 'There was a problem with the email provided'
+            message: 'Error with phone sendend'
         });
-    } else if (typeof(phoneNumber) !== 'string') {
+    } else if (typeof(usrAddress) !== 'string') {
         res.status(400).json({
-            message: 'There was a problem with the phone number provided'
-        });
-    } else if (typeof(address) !== 'string') {
-        res.status(400).json({
-            message: 'There was a problem with the address provided'
+            message: 'Error with address sendend'
         });
     } else {
         next();
     }
 };
 
-mdUsers.requireLoginData = (req, res, next) => {
+mdUsers.requireDataSendend = (req, res, next) => {
     const fullname = req.body.usr_full_name;
     const password = req.body.usr_password;
 
     if(typeof(fullname) !== 'string') {
         res.status(400).json({
-            message: 'There was a problem with the username provided'
+            message: 'Error with name sendend'
         });
     } else if (typeof(password) !== 'string') {
         res.status(400).json({
-            message: 'There was a problem with the password provided'
+            message: 'Error with password sendend'
         });
     } else {
         next();
@@ -56,30 +55,36 @@ mdUsers.requireLoginData = (req, res, next) => {
 };
 
 mdUsers.isDataValid = async (req, res, next) => {
-    const userName = req.body.usr_full_name;
-    const email = req.body.usr_password;
+    const user_name = req.body.usr_full_name;
+    const usr_email = req.body.usr_email;
 
-    const isUserNameValid = await database.usersModel.findOne({
-        where: { usr_full_name: userName }
-    }).catch(err => catchDatabaseEror(err, res));
+    const usernameExists = await Users.usersModel.findOne({
+        where: { usr_full_name: user_name }
+    }).catch(err => throwException(err, res));
 
-    const isEmailValid = await database.usersModel.findOne({
-        where: { usr_email: email }
-    }).catch(err => catchDatabaseEror(err, res));
+    const usrEmailExists = await Users.usersModel.findOne({
+        where: { usr_email: usr_email }
+    }).catch(err => throwException(err, res));
 
-    if(isUserNameValid) {
+    if(usernameExists) {
         res.status(500).json({
-            message: 'This username is already registered.'
+            message: 'This user already exists.'
         });
-    } else if (isEmailValid) {
+    } else if (usrEmailExists) {
         res.status(500).json({
-            message: 'This email is already registered.'
+            message: 'This user already exists.'
         });
     } else {
         next();
     }
 };
 
+const throwException = (err, res) => {
+    res.status(500).json({
+        message: 'There was a problem with the database.',
+        error: err
+    });
+};
 
 mdUsers.userRol = (req, res, next) => {
     console.log(res.locals.userLogged.admin === 1);

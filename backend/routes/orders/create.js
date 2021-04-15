@@ -9,7 +9,7 @@ const mdUsers = require('../../middlewares/mdUsers');
 const mdOrders = require('../../middlewares/mdOrders');
 
 
-router.post('/', mdGlobal.validateToken, mdGlobal.checkBody, mdOrders.checkDataSended, mdOrders.checkProducts, async (req, res) => {
+router.post('/', mdGlobal.validateToken, mdGlobal.checkEmptyBody, mdOrders.checkDataSended, mdOrders.checkProducts, async (req, res) => {
     const userLogged = res.locals.userLogged;
     const dbProducts = res.locals.products;
 

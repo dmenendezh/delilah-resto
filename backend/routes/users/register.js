@@ -6,7 +6,7 @@ const mdGlobal = require('../../middlewares/mdGlobal');
 
 
 
-router.post('/', /* mdGlobal.checkBody, mdUsers.requireRegisterData, mdUsers.isDataValid,*/ async (req, res) => {
+router.post('/',  mdGlobal.checkEmptyBody, mdUsers.checkRequiredData, mdUsers.isDataValid, async (req, res) => {
     const userData = req.body;
     
     const newUser = await Users.usersModel.create(userData)

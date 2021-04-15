@@ -3,9 +3,10 @@ const router = Router();
 const Products = require('../../models/Products');
 const mdGlobal = require('../../middlewares/mdGlobal');
 const mdUsers = require('../../middlewares/mdUsers');
+const mdProducts = require('../../middlewares/mdProducts');
 
 
-router.post('/', mdGlobal.validateToken, mdGlobal.checkBody, mdUsers.userRol, async (req, res) => {
+router.post('/', mdGlobal.validateToken, mdGlobal.checkEmptyBody, mdUsers.userRol, mdProducts.checkDataSended, async (req, res) => {
     const prdData = req.body;
     
     const newProduct = await Products.productModel.create(prdData)

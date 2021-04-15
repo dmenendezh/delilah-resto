@@ -2,7 +2,7 @@ const JWT = require('jsonwebtoken');
 const JWTSign = 'mySUPERpass.12';
 const mdGlobal = {};
 
-mdGlobal.checkBody = (req, res, next) => {
+mdGlobal.checkEmptyBody = (req, res, next) => {
     if(isObjEmpty(req.body)) {
         res.status(400).json({
             message: 'Empty body.'
