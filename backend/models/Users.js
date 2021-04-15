@@ -1,12 +1,12 @@
 const { DataTypes } = require ('sequelize');
 const sequelize = require ('../database/dbConnector');
-const orders = require('../models/Orders');
 
 const usersModel = sequelize.define('users', {
-    usr_login: {
-        type: DataTypes.STRING,
+    usr_id: {
+        type: DataTypes.INTEGER,
         allowNull:false,
-        primaryKey: true
+        primaryKey: true,
+        autoIncrement: true,
     },
     usr_full_name: {
         type: DataTypes.STRING,
@@ -35,13 +35,5 @@ const usersModel = sequelize.define('users', {
 }, {
     timestamps: false
   });
-
-/*usuarios.belongsTo(rol,{
-    foreignKey:'rol_id'
-});*/
-/*
-usersModel.hasMany(orders,{
-    foreignKey:'usr_login'
-});*/
 
 module.exports = {sequelize, usersModel};

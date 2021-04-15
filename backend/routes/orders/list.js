@@ -1,8 +1,10 @@
 const { Router } = require('express');
 const router = Router();
 const Orders = require('../../models/Orders');
+const mdGlobal = require('../../middlewares/mdGlobal');
+const mdUsers = require('../../middlewares/mdUsers');
 
-router.get('/', async (req, res) => {
+router.get('/', mdGlobal.validateToken, mdUsers.userRol, async (req, res) => {
     const orders = await Orders.ordersModel.findAll({})
     .catch(err => throwException(err, res));
 

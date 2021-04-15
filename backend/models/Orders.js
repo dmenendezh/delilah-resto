@@ -6,7 +6,7 @@ const ordersModel = sequelize.define('orders', {
         type: DataTypes.INTEGER,
         allowNull:false,
         primaryKey: true,
-        autoIncrement: true,
+        autoIncrement: true
     },
     order_user: {
         type: DataTypes.STRING,
@@ -18,19 +18,18 @@ const ordersModel = sequelize.define('orders', {
     },
     order_date: {
         type: DataTypes.DATE,
-        allowNull:true
+        allowNull:false
     },
     order_status: {
         type: DataTypes.STRING,
-        allowNull:true
+        allowNull:false
     },
     order_payment_type: {
         type: DataTypes.STRING,
-        allowNull:true
+        allowNull:false
     }
 }, {
-    timestamps: false,
-    underscored: true
+    timestamps: false
   });
 
 module.exports = {sequelize, ordersModel};

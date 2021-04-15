@@ -1,8 +1,10 @@
 const { Router } = require('express');
 const router = Router();
 const Products = require('../../models/Products');
+const mdGlobal = require('../../middlewares/mdGlobal');
+const mdUsers = require('../../middlewares/mdUsers');
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', mdGlobal.validateToken, mdUsers.userRol, async (req, res) => {
     const name = req.body.prd_name;
     const price = req.body.prd_price;
     const description = req.body.prd_description;

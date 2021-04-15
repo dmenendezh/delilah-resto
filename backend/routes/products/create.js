@@ -1,11 +1,12 @@
 const { Router } = require('express');
 const router = Router();
 const Products = require('../../models/Products');
+const mdGlobal = require('../../middlewares/mdGlobal');
+const mdUsers = require('../../middlewares/mdUsers');
 
 
-router.post('/', async (req, res) => {
+router.post('/', mdGlobal.validateToken, mdUsers.userRol, async (req, res) => {
     const prdData = req.body;
-    console.log(prdData);
     
     const newProduct = await Products.productModel.create(prdData)
     .catch(err => {

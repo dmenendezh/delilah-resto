@@ -2,7 +2,10 @@ const { Router } = require('express');
 const router = Router();
 const Products = require('../../models/Products');
 
-router.delete('/:id', async (req, res) => {
+const mdGlobal = require('../../middlewares/mdGlobal');
+const mdUsers = require('../../middlewares/mdUsers');
+
+router.delete('/:id', mdGlobal.validateToken, mdUsers.userRol, async (req, res) => {
     const deletedPrd = await Products.productModel
     .destroy({ where: { prd_id_auto: req.params.id } })
     .catch(err => throwException(err, res));

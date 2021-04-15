@@ -1,4 +1,3 @@
-const PaymentType = require("./PaymentType");
 const Orders = require("./Orders");
 const OrdersDetails = require("./OrdersDetails");
 const Products = require("./Products");
@@ -6,20 +5,18 @@ const Users = require("./Users");
 
 
 Users.hasMany(Orders,{
-    foreignKey:'usr_login'
+    foreignKey:'usr_id'
 });
 
 Orders.belongsTo(Users,{
-    foreignKey: 'usr_login'
+    foreignKey: 'usr_id'
 });
 
 Orders.belongsToMany(Products, {
-    through: OrdersDetails
+    as: 'orders_details',
+    through: OrdersDetails,
+    foreignKey: 'order_id'
 });
 
-Orders.belongsTo(PaymentType,{
-    foreignKey: 'payment_type_id'
-});
 
-
-module.exports = { Users,Products,OrderDetails,Orders,PaymentType};
+module.exports = { Users,Products,Orders,OrderDetails};
