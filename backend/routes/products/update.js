@@ -4,7 +4,7 @@ const Products = require('../../models/Products');
 const mdGlobal = require('../../middlewares/mdGlobal');
 const mdUsers = require('../../middlewares/mdUsers');
 
-router.put('/:id', mdGlobal.validateToken, mdUsers.userRol, async (req, res) => {
+router.put('/:id', mdGlobal.validateToken, mdGlobal.checkBody, mdUsers.userRol, async (req, res) => {
     const name = req.body.prd_name;
     const price = req.body.prd_price;
     const description = req.body.prd_description;

@@ -13,14 +13,16 @@ server.use('/login', require('./backend/routes/users/login'));
 server.use('/register', require('./backend/routes/users/register'));
 
 /*products routes */
-server.use('/products/list', require('./backend/routes/products/list'));
-server.use('/products/create', require('./backend/routes/products/create'));
-server.use('/products/update', require('./backend/routes/products/update'));
-server.use('/products/delete', require('./backend/routes/products/delete'));
+server.use('/products/list', require('./backend/routes/products/list'));//public access
+server.use('/products/create', require('./backend/routes/products/create'));//private access
+server.use('/products/update', require('./backend/routes/products/update'));//private access
+server.use('/products/delete', require('./backend/routes/products/delete'));//private access
 
 /*orders routes */
-server.use('/orders/list', require('./backend/routes/orders/list'));
-server.use('/orders/create', require('./backend/routes/orders/create'));
+server.use('/orders/list', require('./backend/routes/orders/list'));//public access
+server.use('/orders/create', require('./backend/routes/orders/create'));//public access
+server.use('/orders/update', require('./backend/routes/orders/update'));//private access
+server.use('/orders/delete', require('./backend/routes/orders/delete'));//private access
 
 
 const PORT = process.env.APP_PORT ? process.env.APP_PORT : 3000;
@@ -29,18 +31,3 @@ const PORT = process.env.APP_PORT ? process.env.APP_PORT : 3000;
 server.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);
 });
-
-
-// ERROR DETECTION
-server.use((err, req, res, next) => {
-    if (!err) {
-      return next();
-    } else if (err.name === "JsonWebTokenError") {
-      console.log(err);
-      res.status(400).json(`Error: ${err.message}`);
-    } else if (err.name === "TokenExpiredError") {
-      res.status(401).json("Token has expired. Please login again");
-    } else {
-      console.log("An error has occurred", err), res.status(500).send("Error");
-    }
-  });

@@ -3,7 +3,7 @@ const mdOrders = {};
 const Products = require('../models/Products');
 const { Op } = require("sequelize");
 
-mdOrders.productAvailable = async (req, res, next) => {
+mdOrders.checkProducts = async (req, res, next) => {
     const arrProducts = req.body.arrProducts;
     const arrProductsId = arrProducts.map(product => product.product_id);
 
@@ -24,5 +24,23 @@ mdOrders.productAvailable = async (req, res, next) => {
         next();
     }
 }
+
+mdOrders.checkDataSended = async (req, res, next) => {
+    const payment_type = req.body.order_payment_type;
+    const arrProducts = req.body.arrProducts;
+
+    if(typeof(payment_type) !== 'string') {
+        res.status(400).json({
+            message: 'There was a problem with the payment type.'
+        });
+    } else if(!Array.isArray(arrProducts) || arrProducts.length === 0) {
+        res.status(400).json({
+            message: 'Empty order.'
+        });
+    } else {
+        next();
+    }
+}
+
 
 module.exports = mdOrders;

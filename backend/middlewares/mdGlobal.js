@@ -5,7 +5,7 @@ const mdGlobal = {};
 mdGlobal.checkBody = (req, res, next) => {
     if(isObjEmpty(req.body)) {
         res.status(400).json({
-            message: 'There was a problem with the information provided'
+            message: 'Empty body.'
         });
     } else {
         next();

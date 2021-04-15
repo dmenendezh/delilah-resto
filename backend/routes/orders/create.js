@@ -9,7 +9,7 @@ const mdUsers = require('../../middlewares/mdUsers');
 const mdOrders = require('../../middlewares/mdOrders');
 
 
-router.post('/', mdGlobal.validateToken, mdUsers.userRol, mdOrders.productAvailable, async (req, res) => {
+router.post('/', mdGlobal.validateToken, mdGlobal.checkBody, mdOrders.checkDataSended, mdOrders.checkProducts, async (req, res) => {
     const userLogged = res.locals.userLogged;
     const dbProducts = res.locals.products;
 
@@ -26,7 +26,6 @@ router.post('/', mdGlobal.validateToken, mdUsers.userRol, mdOrders.productAvaila
         console.log('Unable to create the order.' + err.message);
         throwException(err, res);
     });
-
   
     const newOrderId = newOrderDB.order_id;
     const arrayProducts = req.body.arrProducts;

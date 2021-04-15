@@ -5,7 +5,7 @@ const mdGlobal = require('../../middlewares/mdGlobal');
 const mdUsers = require('../../middlewares/mdUsers');
 
 
-router.post('/', mdGlobal.validateToken, mdUsers.userRol, async (req, res) => {
+router.post('/', mdGlobal.validateToken, mdGlobal.checkBody, mdUsers.userRol, async (req, res) => {
     const prdData = req.body;
     
     const newProduct = await Products.productModel.create(prdData)
