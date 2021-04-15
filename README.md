@@ -14,6 +14,7 @@ Delilah Resto - Sprint 3 Project
       DB_NAME=delilah-resto-api
       DB_USER=root
 
+7. Iniciar el servidor mediante la consola "Terminal" ejecutar el comando: 'npm run start:server'
 
 NOTA:
 1. Mediante el archivo 'delilah-resto-api.yaml' que se encuentra dentro de la carpeta documentation, podrá acceder a la información para cada servicio vía Swagger.
