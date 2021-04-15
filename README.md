@@ -17,4 +17,4 @@ Delilah Resto - Sprint 3 Project
 
 NOTA:
 1. Mediante el archivo 'delilah-resto-api.yaml' que se encuentra dentro de la carpeta documentation, podrá acceder a la información para cada servicio vía Swagger.
-2. Mediante el archivo 'delilah-resto-api.postman_collection.json', podrá probar facilmente la API en Postman.
+2. Mediante el archivo 'delilah-resto-api.postman_collection.json', que se encuentra dentro de la carpeta documentation, podrá probar facilmente la API en Postman.

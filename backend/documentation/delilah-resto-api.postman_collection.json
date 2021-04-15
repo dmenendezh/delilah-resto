@@ -1,0 +1,1485 @@
+{
+	"info": {
+		"_postman_id": "1a36c63a-1f79-4106-98b0-be767d23d672",
+		"name": "delilah-resto-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"usr_full_name\": \"Administrador\",\n    \"usr_phone\":\"0981234567\",\n    \"usr_address\":\"Bv. Artigas 408\",\n    \"usr_password\":\"admin\",\n    \"usr_email\":\"admin@st.com.uy\",\n    \"usr_admin_flag\":1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Register administrator user",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"usr_full_name\": \"Administrador\",\n    \"usr_phone\":\"0981234567\",\n    \"usr_address\":\"Bv. Artigas 408\",\n    \"usr_password\":\"admin\",\n    \"usr_email\":\"admin@st.com.uy\",\n    \"usr_admin_flag\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "211"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"d3-aFiqrDcgBWgMHmtg83NC9CjcBmU\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 13 Apr 2021 19:14:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"User created.\",\n    \"newUser\": {\n        \"usr_id\": 2,\n        \"usr_full_name\": \"Administrador\",\n        \"usr_phone\": \"0981234567\",\n        \"usr_address\": \"Bv. Artigas 408\",\n        \"usr_password\": \"admin\",\n        \"usr_email\": \"admin@st.com.uy\",\n        \"usr_admin_flag\": 1\n    }\n}"
+				},
+				{
+					"name": "Register common user",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"usr_full_name\": \"Federica Sanguinetti\",\n    \"usr_phone\":\"659899551621\",\n    \"usr_address\":\"Libertad 1018\",\n    \"usr_password\":\"titi123\",\n    \"usr_email\":\"titi@hotmail.com\",\n    \"usr_admin_flag\":0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "221"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"dd-QfJBleopbAZpdj3KH5Un+0LLEvo\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 13 Apr 2021 19:15:20 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"User created.\",\n    \"newUser\": {\n        \"usr_id\": 3,\n        \"usr_full_name\": \"Federica Sanguinetti\",\n        \"usr_phone\": \"659899551621\",\n        \"usr_address\": \"Libertad 1018\",\n        \"usr_password\": \"titi123\",\n        \"usr_email\": \"titi@hotmail.com\",\n        \"usr_admin_flag\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"usr_full_name\":\"Administrador\",\n    \"usr_password\":\"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Sucessfull common login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"usr_full_name\":\"javier@gmail.com\",\n    \"usr_password\":\"javito\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "224"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"e0-IabVJ77aplVHfVvCVyR3HtP2urk\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 15 Apr 2021 14:23:44 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Successfully logged in.\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3JfaWQiOjQsInVzcl9uYW1lIjoiSmF2aWVyIFNhbmd1aW5ldHRpIiwiYWRtaW4iOjAsImlhdCI6MTYxODQ5NjYyNH0.p6dDLpCOMaySQdyDBqdfin2qvMJL8csFbZMJU16Yxmk\"\n}"
+				},
+				{
+					"name": "Sucessfull administrator login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"usr_full_name\":\"Administrador\",\n    \"usr_password\":\"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "217"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"d9-W+FwgZ1Y7djVEGqitmfHOX1Ugfs\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 14 Apr 2021 18:59:43 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Successfully logged in.\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3JfaWQiOjIsInVzcl9uYW1lIjoiQWRtaW5pc3RyYWRvciIsImFkbWluIjoxLCJpYXQiOjE2MTg0MjY3ODN9.uyIk3SthLlkaOKroCT7Q_Nk2KURpsDxrDIjpaoDpIBw\"\n}"
+				},
+				{
+					"name": "Invalid login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"usr_full_name\":\"Administrador\",\n    \"usr_password\":\"prueba\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "43"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2b-r7vQJ6c37m0sA9PAXiryJrRJIaU\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 15 Apr 2021 14:21:33 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Username or password invalid.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "List Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/products/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products",
+						"list"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "List Products",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"list"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1919"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"77f-4UskTsY8PmtqHn2Og84MQRD2UDw\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 15 Apr 2021 14:25:58 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Returning all available products.\",\n    \"quantity\": 10,\n    \"products\": [\n        {\n            \"prd_id_auto\": 1,\n            \"prd_name\": \"Pizza con Muzarella\",\n            \"prd_price\": 280,\n            \"prd_description\": \"Pizza a la piedra con mucha muzarella\",\n            \"prd_image\": \"/srv/apis/delilah/images/pizza.png\"\n        },\n        {\n            \"prd_id_auto\": 2,\n            \"prd_name\": \"Entraña fina con guarnición\",\n            \"prd_price\": 470,\n            \"prd_description\": \"Entraña fina premium con guarnición a elección (papas fritas, pure, ensalada rusa)\",\n            \"prd_image\": \"/srv/apis/delilah/images/entrana.png\"\n        },\n        {\n            \"prd_id_auto\": 4,\n            \"prd_name\": \"Pizza con Muzarella con autorizacion\",\n            \"prd_price\": 1200,\n            \"prd_description\": \"Con autorizacion\",\n            \"prd_image\": \"/home/local/dmenendez/images/autorizacion.png\"\n        },\n        {\n            \"prd_id_auto\": 5,\n            \"prd_name\": \"Pizza con Muzarella con autorizacion\",\n            \"prd_price\": 1200,\n            \"prd_description\": \"Con autorizacion\",\n            \"prd_image\": \"/home/local/dmenendez/images/autorizacion.png\"\n        },\n        {\n            \"prd_id_auto\": 6,\n            \"prd_name\": \"Pizza con Muzarella con autorizacion\",\n            \"prd_price\": 1200,\n            \"prd_description\": \"Con autorizacion\",\n            \"prd_image\": \"/home/local/dmenendez/images/autorizacion.png\"\n        },\n        {\n            \"prd_id_auto\": 7,\n            \"prd_name\": \"Pizza con Muzarella con autorizacion check admin\",\n            \"prd_price\": 800,\n            \"prd_description\": \"Con autorizacion admin\",\n            \"prd_image\": \"/home/local/dmenendez/images/admin.png\"\n        },\n        {\n            \"prd_id_auto\": 8,\n            \"prd_name\": \"Pizza con Muzarella con autorizacion check admin\",\n            \"prd_price\": 800,\n            \"prd_description\": \"Con autorizacion admin\",\n            \"prd_image\": \"/home/local/dmenendez/images/admin.png\"\n        },\n        {\n            \"prd_id_auto\": 16,\n            \"prd_name\": \"Pizza autorizacion check admin\",\n            \"prd_price\": 820,\n            \"prd_description\": \"admin\",\n            \"prd_image\": \"/home/local/dmenendez/images/admin.png\"\n        },\n        {\n            \"prd_id_auto\": 17,\n            \"prd_name\": \"Tarta de Jamon y Queso\",\n            \"prd_price\": 210,\n            \"prd_description\": \"Tarta de Jamon y Queso\",\n            \"prd_image\": \"/home/local/dmenendez/images/tartajyq.png\"\n        },\n        {\n            \"prd_id_auto\": 18,\n            \"prd_name\": \"Pollo con guarnicación\",\n            \"prd_price\": 750,\n            \"prd_description\": \"Pollo al spiedo con guarnicación\",\n            \"prd_image\": \"/home/local/dmenendez/images/pollo.png\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Product",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3JfaWQiOjIsInVzcl9uYW1lIjoiQWRtaW5pc3RyYWRvciIsImFkbWluIjoxLCJpYXQiOjE2MTg0MjY3ODN9.uyIk3SthLlkaOKroCT7Q_Nk2KURpsDxrDIjpaoDpIBw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"prd_name\": \"Pollo con guarnicación\",\n    \"prd_price\":750,\n    \"prd_description\":\"Pollo al spiedo con guarnicación\",\n    \"prd_image\":\"/home/local/dmenendez/images/pollo.png\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/products/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products",
+						"create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Successfull product creation by administrator",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3JfaWQiOjIsInVzcl9uYW1lIjoiQWRtaW5pc3RyYWRvciIsImFkbWluIjoxLCJpYXQiOjE2MTg0MjY3ODN9.uyIk3SthLlkaOKroCT7Q_Nk2KURpsDxrDIjpaoDpIBw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"prd_name\": \"Pollo con guarnicación\",\n    \"prd_price\":750,\n    \"prd_description\":\"Pollo al spiedo con guarnicación\",\n    \"prd_image\":\"/home/local/dmenendez/images/pollo.png\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/products/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"create"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "222"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"de-i5qbVZfSnirR513MtCHMWQL8L6o\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 14 Apr 2021 19:00:57 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Product created.\",\n    \"newProduct\": {\n        \"prd_id_auto\": 18,\n        \"prd_name\": \"Pollo con guarnicación\",\n        \"prd_price\": 750,\n        \"prd_description\": \"Pollo al spiedo con guarnicación\",\n        \"prd_image\": \"/home/local/dmenendez/images/pollo.png\"\n    }\n}"
+				},
+				{
+					"name": "Error product creation by common user",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3JfaWQiOjQsInVzcl9uYW1lIjoiSmF2aWVyIFNhbmd1aW5ldHRpIiwiYWRtaW4iOjAsImlhdCI6MTYxODQ5NjYyNH0.p6dDLpCOMaySQdyDBqdfin2qvMJL8csFbZMJU16Yxmk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"prd_name\": \"Ensalada de frutas\",\n    \"prd_price\":150,\n    \"prd_description\":\"Ensalada con variedad de frutas tropicales\",\n    \"prd_image\":\"/home/local/dmenendez/images/frutas.png\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/products/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"create"
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "31"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1f-MMJaxtT5fcVgXJrEIeC7OqAXOCo\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 15 Apr 2021 14:27:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Permition denied.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Product",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3JfaWQiOjIsInVzcl9uYW1lIjoiQWRtaW5pc3RyYWRvciIsImFkbWluIjoxLCJpYXQiOjE2MTg0MjY3ODN9.uyIk3SthLlkaOKroCT7Q_Nk2KURpsDxrDIjpaoDpIBw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"prd_name\": \"Tarta de Jamon y Queso\",\n    \"prd_price\":210,\n    \"prd_description\":\"Tarta de Jamon y Queso\",\n    \"prd_image\":\"/home/local/dmenendez/images/tartajyq.png\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/products/update/17",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products",
+						"update",
+						"17"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Sucessfull product update by administrator user",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3JfaWQiOjIsInVzcl9uYW1lIjoiQWRtaW5pc3RyYWRvciIsImFkbWluIjoxLCJpYXQiOjE2MTg0MjY3ODN9.uyIk3SthLlkaOKroCT7Q_Nk2KURpsDxrDIjpaoDpIBw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"prd_name\": \"Tarta de Jamon y Queso\",\n    \"prd_price\":210,\n    \"prd_description\":\"Tarta de Jamon y Queso\",\n    \"prd_image\":\"/home/local/dmenendez/images/tartajyq.png\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/products/update/17",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"update",
+								"17"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "48"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"30-dguHXBUx/Q7whGHU9ngPTpNMDw0\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 14 Apr 2021 19:02:55 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Products updated:\",\n    \"updatedPrd\": [\n        1\n    ]\n}"
+				},
+				{
+					"name": "Error product update by common user",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3JfaWQiOjQsInVzcl9uYW1lIjoiSmF2aWVyIFNhbmd1aW5ldHRpIiwiYWRtaW4iOjAsImlhdCI6MTYxODQ5NjYyNH0.p6dDLpCOMaySQdyDBqdfin2qvMJL8csFbZMJU16Yxmk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"prd_name\": \"Ensalada de frutas\",\n    \"prd_price\":120,\n    \"prd_description\":\"Ensalada de frutas con variedad de frutas tropicales\",\n    \"prd_image\":\"/home/local/dmenendez/images/frutas.png\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/products/update/20",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"update",
+								"20"
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "31"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1f-MMJaxtT5fcVgXJrEIeC7OqAXOCo\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 15 Apr 2021 14:29:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Permition denied.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Product",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3JfaWQiOjIsInVzcl9uYW1lIjoiQWRtaW5pc3RyYWRvciIsImFkbWluIjoxLCJpYXQiOjE2MTg0MjY3ODN9.uyIk3SthLlkaOKroCT7Q_Nk2KURpsDxrDIjpaoDpIBw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/products/delete/15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products",
+						"delete",
+						"15"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Sucessfull product deletion by administrator user",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3JfaWQiOjIsInVzcl9uYW1lIjoiQWRtaW5pc3RyYWRvciIsImFkbWluIjoxLCJpYXQiOjE2MTg0MjY3ODN9.uyIk3SthLlkaOKroCT7Q_Nk2KURpsDxrDIjpaoDpIBw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/products/delete/15",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"delete",
+								"15"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "46"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2e-QYS3IFRa4HT8lsIanDqQZYk03Dc\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 14 Apr 2021 19:05:58 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Products deleted:\",\n    \"deletedPrd\": 1\n}"
+				},
+				{
+					"name": "Error product deletion  by common user",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3JfaWQiOjQsInVzcl9uYW1lIjoiSmF2aWVyIFNhbmd1aW5ldHRpIiwiYWRtaW4iOjAsImlhdCI6MTYxODQ5NjYyNH0.p6dDLpCOMaySQdyDBqdfin2qvMJL8csFbZMJU16Yxmk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/products/delete/11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"delete",
+								"11"
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "31"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1f-MMJaxtT5fcVgXJrEIeC7OqAXOCo\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 15 Apr 2021 14:30:49 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Permition denied.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "List Orders",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3JfaWQiOjIsInVzcl9uYW1lIjoiQWRtaW5pc3RyYWRvciIsImFkbWluIjoxLCJpYXQiOjE2MTg0MjY3ODN9.uyIk3SthLlkaOKroCT7Q_Nk2KURpsDxrDIjpaoDpIBw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/orders/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"orders",
+						"list"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "List orders for administrator user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3JfaWQiOjIsInVzcl9uYW1lIjoiQWRtaW5pc3RyYWRvciIsImFkbWluIjoxLCJpYXQiOjE2MTg0MjY3ODN9.uyIk3SthLlkaOKroCT7Q_Nk2KURpsDxrDIjpaoDpIBw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/orders/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"orders",
+								"list"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2748"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"abc-rZAkFZ7mizmnAu00lUrOq4reKlM\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 15 Apr 2021 14:59:43 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Returning all orders:\",\n    \"quantity\": 18,\n    \"orders\": [\n        {\n            \"order_id\": 1,\n            \"order_user\": 2,\n            \"order_total_price\": 1030,\n            \"order_date\": \"2021-04-14T20:43:26.000Z\",\n            \"order_status\": \"Nuevo\",\n            \"order_payment_type\": \"Debito\"\n        },\n        {\n            \"order_id\": 4,\n            \"order_user\": 2,\n            \"order_total_price\": 1030,\n            \"order_date\": \"2021-04-14T21:14:38.000Z\",\n            \"order_status\": \"Nuevo\",\n            \"order_payment_type\": \"Debito\"\n        },\n        {\n            \"order_id\": 5,\n            \"order_user\": 2,\n            \"order_total_price\": 1030,\n            \"order_date\": \"2021-04-14T21:17:33.000Z\",\n            \"order_status\": \"Nuevo\",\n            \"order_payment_type\": \"Debito\"\n        },\n        {\n            \"order_id\": 6,\n            \"order_user\": 2,\n            \"order_total_price\": 1030,\n            \"order_date\": \"2021-04-14T21:18:46.000Z\",\n            \"order_status\": \"Nuevo\",\n            \"order_payment_type\": \"Debito\"\n        },\n        {\n            \"order_id\": 7,\n            \"order_user\": 2,\n            \"order_total_price\": 1030,\n            \"order_date\": \"2021-04-14T21:27:05.000Z\",\n            \"order_status\": \"Nuevo\",\n            \"order_payment_type\": \"Debito\"\n        },\n        {\n            \"order_id\": 8,\n            \"order_user\": 2,\n            \"order_total_price\": 1030,\n            \"order_date\": \"2021-04-14T21:27:42.000Z\",\n            \"order_status\": \"Nuevo\",\n            \"order_payment_type\": \"Debito\"\n        },\n        {\n            \"order_id\": 9,\n            \"order_user\": 2,\n            \"order_total_price\": 1030,\n            \"order_date\": \"2021-04-15T10:40:37.000Z\",\n            \"order_status\": \"Nuevo\",\n            \"order_payment_type\": \"Debito\"\n        },\n        {\n            \"order_id\": 10,\n            \"order_user\": 2,\n            \"order_total_price\": 1030,\n            \"order_date\": \"2021-04-15T10:41:29.000Z\",\n            \"order_status\": \"Nuevo\",\n            \"order_payment_type\": \"Debito\"\n        },\n        {\n            \"order_id\": 11,\n            \"order_user\": 2,\n            \"order_total_price\": 1030,\n            \"order_date\": \"2021-04-15T10:43:17.000Z\",\n            \"order_status\": \"Nuevo\",\n            \"order_payment_type\": \"Debito\"\n        },\n        {\n            \"order_id\": 12,\n            \"order_user\": 2,\n            \"order_total_price\": 1030,\n            \"order_date\": \"2021-04-15T10:46:56.000Z\",\n            \"order_status\": \"Nuevo\",\n            \"order_payment_type\": \"Debito\"\n        },\n        {\n            \"order_id\": 13,\n            \"order_user\": 2,\n            \"order_total_price\": 1030,\n            \"order_date\": \"2021-04-15T11:41:09.000Z\",\n            \"order_status\": \"Nuevo\",\n            \"order_payment_type\": \"Debito\"\n        },\n        {\n            \"order_id\": 14,\n            \"order_user\": 2,\n            \"order_total_price\": 1030,\n            \"order_date\": \"2021-04-15T11:43:48.000Z\",\n            \"order_status\": \"Nuevo\",\n            \"order_payment_type\": \"Debito\"\n        },\n        {\n            \"order_id\": 15,\n            \"order_user\": 2,\n            \"order_total_price\": 1030,\n            \"order_date\": \"2021-04-15T11:46:24.000Z\",\n            \"order_status\": \"Nuevo\",\n            \"order_payment_type\": \"Debito\"\n        },\n        {\n            \"order_id\": 16,\n            \"order_user\": 2,\n            \"order_total_price\": 1030,\n            \"order_date\": \"2021-04-15T11:52:34.000Z\",\n            \"order_status\": \"Nuevo\",\n            \"order_payment_type\": \"Debito\"\n        },\n        {\n            \"order_id\": 17,\n            \"order_user\": 2,\n            \"order_total_price\": 1030,\n            \"order_date\": \"2021-04-15T11:56:28.000Z\",\n            \"order_status\": \"Nuevo\",\n            \"order_payment_type\": \"Debito\"\n        },\n        {\n            \"order_id\": 18,\n            \"order_user\": 2,\n            \"order_total_price\": 1030,\n            \"order_date\": \"2021-04-15T11:59:19.000Z\",\n            \"order_status\": \"Preparando\",\n            \"order_payment_type\": \"Debito\"\n        },\n        {\n            \"order_id\": 19,\n            \"order_user\": 2,\n            \"order_total_price\": 4030,\n            \"order_date\": \"2021-04-15T12:02:28.000Z\",\n            \"order_status\": \"Preparando\",\n            \"order_payment_type\": \"Debito\"\n        },\n        {\n            \"order_id\": 20,\n            \"order_user\": 2,\n            \"order_total_price\": 560,\n            \"order_date\": \"2021-04-15T14:01:07.000Z\",\n            \"order_status\": \"Enviando\",\n            \"order_payment_type\": \"Credito\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "List orders for common user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3JfaWQiOjQsInVzcl9uYW1lIjoiSmF2aWVyIFNhbmd1aW5ldHRpIiwiYWRtaW4iOjAsImlhdCI6MTYxODQ5NjYyNH0.p6dDLpCOMaySQdyDBqdfin2qvMJL8csFbZMJU16Yxmk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/orders/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"orders",
+								"list"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "199"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"c7-LpNyXoa73jzKMIT/jvzxM0QoVyI\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 15 Apr 2021 15:05:41 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"User orders:\",\n    \"quantity\": 1,\n    \"orders\": [\n        {\n            \"order_id\": 21,\n            \"order_user\": 4,\n            \"order_total_price\": 4030,\n            \"order_date\": \"2021-04-15T15:05:16.000Z\",\n            \"order_status\": \"Nuevo\",\n            \"order_payment_type\": \"Debito\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3JfaWQiOjIsInVzcl9uYW1lIjoiQWRtaW5pc3RyYWRvciIsImFkbWluIjoxLCJpYXQiOjE2MTg0MjY3ODN9.uyIk3SthLlkaOKroCT7Q_Nk2KURpsDxrDIjpaoDpIBw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"order_payment_type\" : \"Debito\",\n    \"arrProducts\" : [\n        {\n            \"product_id\": 1,\n\t\t\t\"quantity\": 1\n        },\n        {\n            \"product_id\": 18,\n\t\t\t\"quantity\": 5\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/orders/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"orders",
+						"create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Order",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3JfaWQiOjIsInVzcl9uYW1lIjoiQWRtaW5pc3RyYWRvciIsImFkbWluIjoxLCJpYXQiOjE2MTg0MjY3ODN9.uyIk3SthLlkaOKroCT7Q_Nk2KURpsDxrDIjpaoDpIBw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"order_payment_type\" : \"Debito\",\n    \"arrProducts\" : [\n        {\n            \"product_id\": 1,\n\t\t\t\"quantity\": 1\n        },\n        {\n            \"product_id\": 18,\n\t\t\t\"quantity\": 5\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/orders/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"orders",
+								"create"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "190"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"be-b+NkOSCRWhidGqx8XnBlCmop8XI\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 15 Apr 2021 12:02:28 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Order created.\",\n    \"newOrderDB\": {\n        \"order_id\": 19,\n        \"order_total_price\": 4030,\n        \"order_payment_type\": \"Debito\",\n        \"order_status\": \"Nuevo\",\n        \"order_date\": \"2021-04-15T12:02:28.567Z\",\n        \"order_user\": 2\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Order",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3JfaWQiOjIsInVzcl9uYW1lIjoiQWRtaW5pc3RyYWRvciIsImFkbWluIjoxLCJpYXQiOjE2MTg0MjY3ODN9.uyIk3SthLlkaOKroCT7Q_Nk2KURpsDxrDIjpaoDpIBw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"order_status\":\"Preparando\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/orders/update/18",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"orders",
+						"update",
+						"18"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update Order",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3JfaWQiOjIsInVzcl9uYW1lIjoiQWRtaW5pc3RyYWRvciIsImFkbWluIjoxLCJpYXQiOjE2MTg0MjY3ODN9.uyIk3SthLlkaOKroCT7Q_Nk2KURpsDxrDIjpaoDpIBw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"order_status\":\"Preparando\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/orders/update/18",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"orders",
+								"update",
+								"18"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "47"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2f-w+io1GFcBkYCsVuSG+777RGK6SE\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 15 Apr 2021 13:14:00 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Order updated.\",\n    \"updatedOrder\": [\n        1\n    ]\n}"
+				},
+				{
+					"name": "Update Order",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3JfaWQiOjIsInVzcl9uYW1lIjoiQWRtaW5pc3RyYWRvciIsImFkbWluIjoxLCJpYXQiOjE2MTg0MjY3ODN9.uyIk3SthLlkaOKroCT7Q_Nk2KURpsDxrDIjpaoDpIBw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"order_status\":\"XXXX\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/orders/update/20",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"orders",
+								"update",
+								"20"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "37"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"25-TaVVZaElDx3Kt0uMLU4987mUfEo\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 15 Apr 2021 14:08:30 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Invalid status sendend.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Order",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3JfaWQiOjIsInVzcl9uYW1lIjoiQWRtaW5pc3RyYWRvciIsImFkbWluIjoxLCJpYXQiOjE2MTg0MjY3ODN9.uyIk3SthLlkaOKroCT7Q_Nk2KURpsDxrDIjpaoDpIBw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/orders/delete/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"orders",
+						"delete",
+						"3"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Order",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3JfaWQiOjIsInVzcl9uYW1lIjoiQWRtaW5pc3RyYWRvciIsImFkbWluIjoxLCJpYXQiOjE2MTg0MjY3ODN9.uyIk3SthLlkaOKroCT7Q_Nk2KURpsDxrDIjpaoDpIBw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/orders/delete/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"orders",
+								"delete",
+								"3"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "45"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2d-HAngjeQPreGTnnOT5To/JczoSJI\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 15 Apr 2021 13:13:32 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Order deleted.\",\n    \"deletedOrder\": 1\n}"
+				}
+			]
+		}
+	]
+}

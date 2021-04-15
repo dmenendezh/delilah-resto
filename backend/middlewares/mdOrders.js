@@ -55,7 +55,7 @@ mdOrders.checkStatusSendend = (req, res, next) => {
             next();
         }else{
             res.status(400).json({
-                message: 'Invalid status sendend.'
+                message: 'Invalid status sendend. Possibles: Nuevo, Confirmado, Preparando, Enviando, Entregado'
             });
         }
         
