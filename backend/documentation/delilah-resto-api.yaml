@@ -1,0 +1,1637 @@
+openapi: 3.0.0
+info:
+  title: delilah-resto-api
+  description: "Documentacion Proyecto Sprint 3 - Acámica"
+  version: "1.0.0"
+  contact: {}
+servers:
+- url: http://localhost:3000
+  variables: {}
+paths:
+  /register:
+    post:
+      tags:
+      - delilah-resto-api
+      summary: Register
+      operationId: Register
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+            example:
+              usr_full_name: Administrador
+              usr_phone: 0981234567
+              usr_address: Bv. Artigas 408
+              usr_password: admin
+              usr_email: admin@st.com.uy
+              usr_admin_flag: 1
+        required: true
+      responses:
+        '201':
+          description: Created
+          headers:
+            X-Powered-By:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Express
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '211'
+            ETag:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: W/"d3-aFiqrDcgBWgMHmtg83NC9CjcBmU"
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Tue, 13 Apr 2021 19:14:15 GMT
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: keep-alive
+            Keep-Alive:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: timeout=5
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Registeradministratoruser'
+      deprecated: false
+  /login:
+    post:
+      tags:
+      - delilah-resto-api
+      summary: Login
+      operationId: Login
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+            example:
+              usr_full_name: Administrador
+              usr_password: admin
+        required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Express
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '224'
+            ETag:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: W/"e0-IabVJ77aplVHfVvCVyR3HtP2urk"
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Thu, 15 Apr 2021 14:23:44 GMT
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: keep-alive
+            Keep-Alive:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: timeout=5
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Sucessfullcommonlogin'
+        '404':
+          description: Not Found
+          headers:
+            X-Powered-By:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Express
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '43'
+            ETag:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: W/"2b-r7vQJ6c37m0sA9PAXiryJrRJIaU"
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Thu, 15 Apr 2021 14:21:33 GMT
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: keep-alive
+            Keep-Alive:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: timeout=5
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Invalidlogin1'
+      deprecated: false
+  /products/list:
+    get:
+      tags:
+      - delilah-resto-api
+      summary: List Products
+      operationId: ListProducts
+      parameters: []
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Express
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '1919'
+            ETag:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: W/"77f-4UskTsY8PmtqHn2Og84MQRD2UDw"
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Thu, 15 Apr 2021 14:25:58 GMT
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: keep-alive
+            Keep-Alive:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: timeout=5
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/ListProducts'
+      deprecated: false
+  /products/create:
+    post:
+      tags:
+      - delilah-resto-api
+      summary: Create Product
+      operationId: CreateProduct
+      parameters:
+      - name: Authorization
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3JfaWQiOjIsInVzcl9uYW1lIjoiQWRtaW5pc3RyYWRvciIsImFkbWluIjoxLCJpYXQiOjE2MTg0MjY3ODN9.uyIk3SthLlkaOKroCT7Q_Nk2KURpsDxrDIjpaoDpIBw
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateProductRequest'
+            example:
+              prd_name: Pollo con guarnicación
+              prd_price: 750
+              prd_description: Pollo al spiedo con guarnicación
+              prd_image: /home/local/dmenendez/images/pollo.png
+        required: true
+      responses:
+        '201':
+          description: Created
+          headers:
+            X-Powered-By:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Express
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '222'
+            ETag:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: W/"de-i5qbVZfSnirR513MtCHMWQL8L6o"
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Wed, 14 Apr 2021 19:00:57 GMT
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: keep-alive
+            Keep-Alive:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: timeout=5
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Successfullproductcreationbyadministrator'
+        '403':
+          description: Forbidden
+          headers:
+            X-Powered-By:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Express
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '31'
+            ETag:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: W/"1f-MMJaxtT5fcVgXJrEIeC7OqAXOCo"
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Thu, 15 Apr 2021 14:27:35 GMT
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: keep-alive
+            Keep-Alive:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: timeout=5
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Errorproductcreationbycommonuser1'
+      deprecated: false
+      security: []
+  /products/update/17:
+    put:
+      tags:
+      - delilah-resto-api
+      summary: Update Product
+      operationId: UpdateProduct
+      parameters:
+      - name: Authorization
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3JfaWQiOjIsInVzcl9uYW1lIjoiQWRtaW5pc3RyYWRvciIsImFkbWluIjoxLCJpYXQiOjE2MTg0MjY3ODN9.uyIk3SthLlkaOKroCT7Q_Nk2KURpsDxrDIjpaoDpIBw
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateProductRequest'
+            example:
+              prd_name: Tarta de Jamon y Queso
+              prd_price: 210
+              prd_description: Tarta de Jamon y Queso
+              prd_image: /home/local/dmenendez/images/tartajyq.png
+        required: true
+      responses:
+        '201':
+          description: Created
+          headers:
+            X-Powered-By:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Express
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '48'
+            ETag:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: W/"30-dguHXBUx/Q7whGHU9ngPTpNMDw0"
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Wed, 14 Apr 2021 19:02:55 GMT
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: keep-alive
+            Keep-Alive:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: timeout=5
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Sucessfullproductupdatebyadministratoruser'
+        '403':
+          description: Forbidden
+          headers:
+            X-Powered-By:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Express
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '31'
+            ETag:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: W/"1f-MMJaxtT5fcVgXJrEIeC7OqAXOCo"
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Thu, 15 Apr 2021 14:29:15 GMT
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: keep-alive
+            Keep-Alive:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: timeout=5
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Errorproductupdatebycommonuser1'
+      deprecated: false
+      security: []
+  /products/delete/15:
+    delete:
+      tags:
+      - delilah-resto-api
+      summary: Delete Product
+      operationId: DeleteProduct
+      parameters:
+      - name: Authorization
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3JfaWQiOjIsInVzcl9uYW1lIjoiQWRtaW5pc3RyYWRvciIsImFkbWluIjoxLCJpYXQiOjE2MTg0MjY3ODN9.uyIk3SthLlkaOKroCT7Q_Nk2KURpsDxrDIjpaoDpIBw
+      responses:
+        '201':
+          description: Created
+          headers:
+            X-Powered-By:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Express
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '46'
+            ETag:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: W/"2e-QYS3IFRa4HT8lsIanDqQZYk03Dc"
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Wed, 14 Apr 2021 19:05:58 GMT
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: keep-alive
+            Keep-Alive:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: timeout=5
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Sucessfullproductdeletionbyadministratoruser'
+        '403':
+          description: Forbidden
+          headers:
+            X-Powered-By:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Express
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '31'
+            ETag:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: W/"1f-MMJaxtT5fcVgXJrEIeC7OqAXOCo"
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Thu, 15 Apr 2021 14:30:49 GMT
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: keep-alive
+            Keep-Alive:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: timeout=5
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Errorproductdeletionbycommonuser1'
+      deprecated: false
+      security: []
+  /orders/list:
+    get:
+      tags:
+      - delilah-resto-api
+      summary: List Orders
+      operationId: ListOrders
+      parameters:
+      - name: Authorization
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3JfaWQiOjIsInVzcl9uYW1lIjoiQWRtaW5pc3RyYWRvciIsImFkbWluIjoxLCJpYXQiOjE2MTg0MjY3ODN9.uyIk3SthLlkaOKroCT7Q_Nk2KURpsDxrDIjpaoDpIBw
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Express
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '2748'
+            ETag:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: W/"abc-rZAkFZ7mizmnAu00lUrOq4reKlM"
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Thu, 15 Apr 2021 14:59:43 GMT
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: keep-alive
+            Keep-Alive:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: timeout=5
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Listordersforadministratoruser'
+      deprecated: false
+      security: []
+  /orders/create:
+    post:
+      tags:
+      - delilah-resto-api
+      summary: Create Order
+      operationId: CreateOrder
+      parameters:
+      - name: Authorization
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3JfaWQiOjIsInVzcl9uYW1lIjoiQWRtaW5pc3RyYWRvciIsImFkbWluIjoxLCJpYXQiOjE2MTg0MjY3ODN9.uyIk3SthLlkaOKroCT7Q_Nk2KURpsDxrDIjpaoDpIBw
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrderRequest'
+            example:
+              order_payment_type: Debito
+              arrProducts:
+              - product_id: 1
+                quantity: 1
+              - product_id: 18
+                quantity: 5
+        required: true
+      responses:
+        '201':
+          description: Created
+          headers:
+            X-Powered-By:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Express
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '190'
+            ETag:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: W/"be-b+NkOSCRWhidGqx8XnBlCmop8XI"
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Thu, 15 Apr 2021 12:02:28 GMT
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: keep-alive
+            Keep-Alive:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: timeout=5
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CreateOrder'
+      deprecated: false
+      security: []
+  /orders/update/18:
+    put:
+      tags:
+      - delilah-resto-api
+      summary: Update Order
+      operationId: UpdateOrder
+      parameters:
+      - name: Authorization
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3JfaWQiOjIsInVzcl9uYW1lIjoiQWRtaW5pc3RyYWRvciIsImFkbWluIjoxLCJpYXQiOjE2MTg0MjY3ODN9.uyIk3SthLlkaOKroCT7Q_Nk2KURpsDxrDIjpaoDpIBw
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateOrderRequest'
+            example:
+              order_status: Preparando
+        required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Express
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '47'
+            ETag:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: W/"2f-w+io1GFcBkYCsVuSG+777RGK6SE"
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Thu, 15 Apr 2021 13:14:00 GMT
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: keep-alive
+            Keep-Alive:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: timeout=5
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/UpdateOrder'
+        '400':
+          description: Bad Request
+          headers:
+            X-Powered-By:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Express
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '37'
+            ETag:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: W/"25-TaVVZaElDx3Kt0uMLU4987mUfEo"
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Thu, 15 Apr 2021 14:08:30 GMT
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: keep-alive
+            Keep-Alive:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: timeout=5
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/UpdateOrder2'
+      deprecated: false
+      security: []
+  /orders/delete/3:
+    delete:
+      tags:
+      - delilah-resto-api
+      summary: Delete Order
+      operationId: DeleteOrder
+      parameters:
+      - name: Authorization
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3JfaWQiOjIsInVzcl9uYW1lIjoiQWRtaW5pc3RyYWRvciIsImFkbWluIjoxLCJpYXQiOjE2MTg0MjY3ODN9.uyIk3SthLlkaOKroCT7Q_Nk2KURpsDxrDIjpaoDpIBw
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Express
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '45'
+            ETag:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: W/"2d-HAngjeQPreGTnnOT5To/JczoSJI"
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Thu, 15 Apr 2021 13:13:32 GMT
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: keep-alive
+            Keep-Alive:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: timeout=5
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/DeleteOrder'
+      deprecated: false
+      security: []
+components:
+  schemas:
+    RegisterRequest:
+      title: RegisterRequest
+      required:
+      - usr_full_name
+      - usr_phone
+      - usr_address
+      - usr_password
+      - usr_email
+      - usr_admin_flag
+      type: object
+      properties:
+        usr_full_name:
+          type: string
+        usr_phone:
+          type: string
+        usr_address:
+          type: string
+        usr_password:
+          type: string
+        usr_email:
+          type: string
+        usr_admin_flag:
+          type: integer
+          format: int32
+      example:
+        usr_full_name: Administrador
+        usr_phone: 0981234567
+        usr_address: Bv. Artigas 408
+        usr_password: admin
+        usr_email: admin@st.com.uy
+        usr_admin_flag: 1
+    Registeradministratoruser:
+      title: Registeradministratoruser
+      required:
+      - message
+      - newUser
+      type: object
+      properties:
+        message:
+          type: string
+        newUser:
+          $ref: '#/components/schemas/NewUser'
+      example:
+        message: User created.
+        newUser:
+          usr_id: 2
+          usr_full_name: Administrador
+          usr_phone: 0981234567
+          usr_address: Bv. Artigas 408
+          usr_password: admin
+          usr_email: admin@st.com.uy
+          usr_admin_flag: 1
+    NewUser:
+      title: NewUser
+      required:
+      - usr_id
+      - usr_full_name
+      - usr_phone
+      - usr_address
+      - usr_password
+      - usr_email
+      - usr_admin_flag
+      type: object
+      properties:
+        usr_id:
+          type: integer
+          format: int32
+        usr_full_name:
+          type: string
+        usr_phone:
+          type: string
+        usr_address:
+          type: string
+        usr_password:
+          type: string
+        usr_email:
+          type: string
+        usr_admin_flag:
+          type: integer
+          format: int32
+      example:
+        usr_id: 2
+        usr_full_name: Administrador
+        usr_phone: 0981234567
+        usr_address: Bv. Artigas 408
+        usr_password: admin
+        usr_email: admin@st.com.uy
+        usr_admin_flag: 1
+    Registercommonuser:
+      title: Registercommonuser
+      required:
+      - message
+      - newUser
+      type: object
+      properties:
+        message:
+          type: string
+        newUser:
+          $ref: '#/components/schemas/NewUser'
+      example:
+        message: User created.
+        newUser:
+          usr_id: 3
+          usr_full_name: Federica Sanguinetti
+          usr_phone: '659899551621'
+          usr_address: Libertad 1018
+          usr_password: titi123
+          usr_email: titi@hotmail.com
+          usr_admin_flag: 0
+    LoginRequest:
+      title: LoginRequest
+      required:
+      - usr_full_name
+      - usr_password
+      type: object
+      properties:
+        usr_full_name:
+          type: string
+        usr_password:
+          type: string
+      example:
+        usr_full_name: Administrador
+        usr_password: admin
+    Sucessfullcommonlogin:
+      title: Sucessfullcommonlogin
+      required:
+      - message
+      - token
+      type: object
+      properties:
+        message:
+          type: string
+        token:
+          type: string
+      example:
+        message: Successfully logged in.
+        token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3JfaWQiOjQsInVzcl9uYW1lIjoiSmF2aWVyIFNhbmd1aW5ldHRpIiwiYWRtaW4iOjAsImlhdCI6MTYxODQ5NjYyNH0.p6dDLpCOMaySQdyDBqdfin2qvMJL8csFbZMJU16Yxmk
+    Sucessfulladministratorlogin:
+      title: Sucessfulladministratorlogin
+      required:
+      - message
+      - token
+      type: object
+      properties:
+        message:
+          type: string
+        token:
+          type: string
+      example:
+        message: Successfully logged in.
+        token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3JfaWQiOjIsInVzcl9uYW1lIjoiQWRtaW5pc3RyYWRvciIsImFkbWluIjoxLCJpYXQiOjE2MTg0MjY3ODN9.uyIk3SthLlkaOKroCT7Q_Nk2KURpsDxrDIjpaoDpIBw
+    Invalidlogin1:
+      title: Invalidlogin1
+      required:
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+      example:
+        message: Username or password invalid.
+    ListProducts:
+      title: ListProducts
+      required:
+      - message
+      - quantity
+      - products
+      type: object
+      properties:
+        message:
+          type: string
+        quantity:
+          type: integer
+          format: int32
+        products:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+          description: ''
+      example:
+        message: Returning all available products.
+        quantity: 10
+        products:
+        - prd_id_auto: 1
+          prd_name: Pizza con Muzarella
+          prd_price: 280
+          prd_description: Pizza a la piedra con mucha muzarella
+          prd_image: /srv/apis/delilah/images/pizza.png
+        - prd_id_auto: 2
+          prd_name: Entraña fina con guarnición
+          prd_price: 470
+          prd_description: Entraña fina premium con guarnición a elección (papas fritas, pure, ensalada rusa)
+          prd_image: /srv/apis/delilah/images/entrana.png
+        - prd_id_auto: 4
+          prd_name: Pizza con Muzarella con autorizacion
+          prd_price: 1200
+          prd_description: Con autorizacion
+          prd_image: /home/local/dmenendez/images/autorizacion.png
+        - prd_id_auto: 5
+          prd_name: Pizza con Muzarella con autorizacion
+          prd_price: 1200
+          prd_description: Con autorizacion
+          prd_image: /home/local/dmenendez/images/autorizacion.png
+        - prd_id_auto: 6
+          prd_name: Pizza con Muzarella con autorizacion
+          prd_price: 1200
+          prd_description: Con autorizacion
+          prd_image: /home/local/dmenendez/images/autorizacion.png
+        - prd_id_auto: 7
+          prd_name: Pizza con Muzarella con autorizacion check admin
+          prd_price: 800
+          prd_description: Con autorizacion admin
+          prd_image: /home/local/dmenendez/images/admin.png
+        - prd_id_auto: 8
+          prd_name: Pizza con Muzarella con autorizacion check admin
+          prd_price: 800
+          prd_description: Con autorizacion admin
+          prd_image: /home/local/dmenendez/images/admin.png
+        - prd_id_auto: 16
+          prd_name: Pizza autorizacion check admin
+          prd_price: 820
+          prd_description: admin
+          prd_image: /home/local/dmenendez/images/admin.png
+        - prd_id_auto: 17
+          prd_name: Tarta de Jamon y Queso
+          prd_price: 210
+          prd_description: Tarta de Jamon y Queso
+          prd_image: /home/local/dmenendez/images/tartajyq.png
+        - prd_id_auto: 18
+          prd_name: Pollo con guarnicación
+          prd_price: 750
+          prd_description: Pollo al spiedo con guarnicación
+          prd_image: /home/local/dmenendez/images/pollo.png
+    Product:
+      title: Product
+      required:
+      - prd_id_auto
+      - prd_name
+      - prd_price
+      - prd_description
+      - prd_image
+      type: object
+      properties:
+        prd_id_auto:
+          type: integer
+          format: int32
+        prd_name:
+          type: string
+        prd_price:
+          type: integer
+          format: int32
+        prd_description:
+          type: string
+        prd_image:
+          type: string
+      example:
+        prd_id_auto: 1
+        prd_name: Pizza con Muzarella
+        prd_price: 280
+        prd_description: Pizza a la piedra con mucha muzarella
+        prd_image: /srv/apis/delilah/images/pizza.png
+    CreateProductRequest:
+      title: CreateProductRequest
+      required:
+      - prd_name
+      - prd_price
+      - prd_description
+      - prd_image
+      type: object
+      properties:
+        prd_name:
+          type: string
+        prd_price:
+          type: integer
+          format: int32
+        prd_description:
+          type: string
+        prd_image:
+          type: string
+      example:
+        prd_name: Pollo con guarnicación
+        prd_price: 750
+        prd_description: Pollo al spiedo con guarnicación
+        prd_image: /home/local/dmenendez/images/pollo.png
+    Successfullproductcreationbyadministrator:
+      title: Successfullproductcreationbyadministrator
+      required:
+      - message
+      - newProduct
+      type: object
+      properties:
+        message:
+          type: string
+        newProduct:
+          $ref: '#/components/schemas/NewProduct'
+      example:
+        message: Product created.
+        newProduct:
+          prd_id_auto: 18
+          prd_name: Pollo con guarnicación
+          prd_price: 750
+          prd_description: Pollo al spiedo con guarnicación
+          prd_image: /home/local/dmenendez/images/pollo.png
+    NewProduct:
+      title: NewProduct
+      required:
+      - prd_id_auto
+      - prd_name
+      - prd_price
+      - prd_description
+      - prd_image
+      type: object
+      properties:
+        prd_id_auto:
+          type: integer
+          format: int32
+        prd_name:
+          type: string
+        prd_price:
+          type: integer
+          format: int32
+        prd_description:
+          type: string
+        prd_image:
+          type: string
+      example:
+        prd_id_auto: 18
+        prd_name: Pollo con guarnicación
+        prd_price: 750
+        prd_description: Pollo al spiedo con guarnicación
+        prd_image: /home/local/dmenendez/images/pollo.png
+    Errorproductcreationbycommonuser1:
+      title: Errorproductcreationbycommonuser1
+      required:
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+      example:
+        message: Permition denied.
+    UpdateProductRequest:
+      title: UpdateProductRequest
+      required:
+      - prd_name
+      - prd_price
+      - prd_description
+      - prd_image
+      type: object
+      properties:
+        prd_name:
+          type: string
+        prd_price:
+          type: integer
+          format: int32
+        prd_description:
+          type: string
+        prd_image:
+          type: string
+      example:
+        prd_name: Tarta de Jamon y Queso
+        prd_price: 210
+        prd_description: Tarta de Jamon y Queso
+        prd_image: /home/local/dmenendez/images/tartajyq.png
+    Sucessfullproductupdatebyadministratoruser:
+      title: Sucessfullproductupdatebyadministratoruser
+      required:
+      - message
+      - updatedPrd
+      type: object
+      properties:
+        message:
+          type: string
+        updatedPrd:
+          type: array
+          items:
+            type: integer
+            format: int32
+          description: ''
+      example:
+        message: 'Products updated:'
+        updatedPrd:
+        - 1
+    Errorproductupdatebycommonuser1:
+      title: Errorproductupdatebycommonuser1
+      required:
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+      example:
+        message: Permition denied.
+    Sucessfullproductdeletionbyadministratoruser:
+      title: Sucessfullproductdeletionbyadministratoruser
+      required:
+      - message
+      - deletedPrd
+      type: object
+      properties:
+        message:
+          type: string
+        deletedPrd:
+          type: integer
+          format: int32
+      example:
+        message: 'Products deleted:'
+        deletedPrd: 1
+    Errorproductdeletionbycommonuser1:
+      title: Errorproductdeletionbycommonuser1
+      required:
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+      example:
+        message: Permition denied.
+    Listordersforadministratoruser:
+      title: Listordersforadministratoruser
+      required:
+      - message
+      - quantity
+      - orders
+      type: object
+      properties:
+        message:
+          type: string
+        quantity:
+          type: integer
+          format: int32
+        orders:
+          type: array
+          items:
+            $ref: '#/components/schemas/Order'
+          description: ''
+      example:
+        message: 'Returning all orders:'
+        quantity: 18
+        orders:
+        - order_id: 1
+          order_user: 2
+          order_total_price: 1030
+          order_date: 2021-04-14T20:43:26Z
+          order_status: Nuevo
+          order_payment_type: Debito
+        - order_id: 4
+          order_user: 2
+          order_total_price: 1030
+          order_date: 2021-04-14T21:14:38Z
+          order_status: Nuevo
+          order_payment_type: Debito
+        - order_id: 5
+          order_user: 2
+          order_total_price: 1030
+          order_date: 2021-04-14T21:17:33Z
+          order_status: Nuevo
+          order_payment_type: Debito
+        - order_id: 6
+          order_user: 2
+          order_total_price: 1030
+          order_date: 2021-04-14T21:18:46Z
+          order_status: Nuevo
+          order_payment_type: Debito
+        - order_id: 7
+          order_user: 2
+          order_total_price: 1030
+          order_date: 2021-04-14T21:27:05Z
+          order_status: Nuevo
+          order_payment_type: Debito
+        - order_id: 8
+          order_user: 2
+          order_total_price: 1030
+          order_date: 2021-04-14T21:27:42Z
+          order_status: Nuevo
+          order_payment_type: Debito
+        - order_id: 9
+          order_user: 2
+          order_total_price: 1030
+          order_date: 2021-04-15T10:40:37Z
+          order_status: Nuevo
+          order_payment_type: Debito
+        - order_id: 10
+          order_user: 2
+          order_total_price: 1030
+          order_date: 2021-04-15T10:41:29Z
+          order_status: Nuevo
+          order_payment_type: Debito
+        - order_id: 11
+          order_user: 2
+          order_total_price: 1030
+          order_date: 2021-04-15T10:43:17Z
+          order_status: Nuevo
+          order_payment_type: Debito
+        - order_id: 12
+          order_user: 2
+          order_total_price: 1030
+          order_date: 2021-04-15T10:46:56Z
+          order_status: Nuevo
+          order_payment_type: Debito
+        - order_id: 13
+          order_user: 2
+          order_total_price: 1030
+          order_date: 2021-04-15T11:41:09Z
+          order_status: Nuevo
+          order_payment_type: Debito
+        - order_id: 14
+          order_user: 2
+          order_total_price: 1030
+          order_date: 2021-04-15T11:43:48Z
+          order_status: Nuevo
+          order_payment_type: Debito
+        - order_id: 15
+          order_user: 2
+          order_total_price: 1030
+          order_date: 2021-04-15T11:46:24Z
+          order_status: Nuevo
+          order_payment_type: Debito
+        - order_id: 16
+          order_user: 2
+          order_total_price: 1030
+          order_date: 2021-04-15T11:52:34Z
+          order_status: Nuevo
+          order_payment_type: Debito
+        - order_id: 17
+          order_user: 2
+          order_total_price: 1030
+          order_date: 2021-04-15T11:56:28Z
+          order_status: Nuevo
+          order_payment_type: Debito
+        - order_id: 18
+          order_user: 2
+          order_total_price: 1030
+          order_date: 2021-04-15T11:59:19Z
+          order_status: Preparando
+          order_payment_type: Debito
+        - order_id: 19
+          order_user: 2
+          order_total_price: 4030
+          order_date: 2021-04-15T12:02:28Z
+          order_status: Preparando
+          order_payment_type: Debito
+        - order_id: 20
+          order_user: 2
+          order_total_price: 560
+          order_date: 2021-04-15T14:01:07Z
+          order_status: Enviando
+          order_payment_type: Credito
+    Order:
+      title: Order
+      required:
+      - order_id
+      - order_user
+      - order_total_price
+      - order_date
+      - order_status
+      - order_payment_type
+      type: object
+      properties:
+        order_id:
+          type: integer
+          format: int32
+        order_user:
+          type: integer
+          format: int32
+        order_total_price:
+          type: integer
+          format: int32
+        order_date:
+          type: string
+        order_status:
+          type: string
+        order_payment_type:
+          type: string
+      example:
+        order_id: 1
+        order_user: 2
+        order_total_price: 1030
+        order_date: 2021-04-14T20:43:26Z
+        order_status: Nuevo
+        order_payment_type: Debito
+    Listordersforcommonuser:
+      title: Listordersforcommonuser
+      required:
+      - message
+      - quantity
+      - orders
+      type: object
+      properties:
+        message:
+          type: string
+        quantity:
+          type: integer
+          format: int32
+        orders:
+          type: array
+          items:
+            $ref: '#/components/schemas/Order'
+          description: ''
+      example:
+        message: 'User orders:'
+        quantity: 1
+        orders:
+        - order_id: 21
+          order_user: 4
+          order_total_price: 4030
+          order_date: 2021-04-15T15:05:16Z
+          order_status: Nuevo
+          order_payment_type: Debito
+    CreateOrderRequest:
+      title: CreateOrderRequest
+      required:
+      - order_payment_type
+      - arrProducts
+      type: object
+      properties:
+        order_payment_type:
+          type: string
+        arrProducts:
+          type: array
+          items:
+            $ref: '#/components/schemas/ArrProduct'
+          description: ''
+      example:
+        order_payment_type: Debito
+        arrProducts:
+        - product_id: 1
+          quantity: 1
+        - product_id: 18
+          quantity: 5
+    ArrProduct:
+      title: ArrProduct
+      required:
+      - product_id
+      - quantity
+      type: object
+      properties:
+        product_id:
+          type: integer
+          format: int32
+        quantity:
+          type: integer
+          format: int32
+      example:
+        product_id: 1
+        quantity: 1
+    CreateOrder:
+      title: CreateOrder
+      required:
+      - message
+      - newOrderDB
+      type: object
+      properties:
+        message:
+          type: string
+        newOrderDB:
+          $ref: '#/components/schemas/NewOrderDB'
+      example:
+        message: Order created.
+        newOrderDB:
+          order_id: 19
+          order_total_price: 4030
+          order_payment_type: Debito
+          order_status: Nuevo
+          order_date: 2021-04-15T12:02:28.567Z
+          order_user: 2
+    NewOrderDB:
+      title: NewOrderDB
+      required:
+      - order_id
+      - order_total_price
+      - order_payment_type
+      - order_status
+      - order_date
+      - order_user
+      type: object
+      properties:
+        order_id:
+          type: integer
+          format: int32
+        order_total_price:
+          type: integer
+          format: int32
+        order_payment_type:
+          type: string
+        order_status:
+          type: string
+        order_date:
+          type: string
+        order_user:
+          type: integer
+          format: int32
+      example:
+        order_id: 19
+        order_total_price: 4030
+        order_payment_type: Debito
+        order_status: Nuevo
+        order_date: 2021-04-15T12:02:28.567Z
+        order_user: 2
+    UpdateOrderRequest:
+      title: UpdateOrderRequest
+      required:
+      - order_status
+      type: object
+      properties:
+        order_status:
+          type: string
+      example:
+        order_status: Preparando
+    UpdateOrder:
+      title: UpdateOrder
+      required:
+      - message
+      - updatedOrder
+      type: object
+      properties:
+        message:
+          type: string
+        updatedOrder:
+          type: array
+          items:
+            type: integer
+            format: int32
+          description: ''
+      example:
+        message: Order updated.
+        updatedOrder:
+        - 1
+    UpdateOrder2:
+      title: UpdateOrder2
+      required:
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+      example:
+        message: Invalid status sendend.
+    DeleteOrder:
+      title: DeleteOrder
+      required:
+      - message
+      - deletedOrder
+      type: object
+      properties:
+        message:
+          type: string
+        deletedOrder:
+          type: integer
+          format: int32
+      example:
+        message: Order deleted.
+        deletedOrder: 1
+tags:
+- name: delilah-resto-api
+  description: ''

@@ -10,11 +10,14 @@ mdUsers.checkRequiredData = async (req, res, next) => {
 
     const usr_admin_flag = req.body.usr_admin_flag;
     const usrEmail = req.body.usr_email;
-    console.log(typeof(usr_admin_flag));
 
     if(typeof(fullName) !== 'string') {
         res.status(400).json({
             message: 'Error with user sendend'
+        });
+    } else if (typeof(usr_admin_flag) !== 'number') {
+        res.status(400).json({
+            message: 'Error with admin flag sendend'
         });
     } else if (typeof(usrPassword) !== 'string') {
         res.status(400).json({
