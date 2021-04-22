@@ -179,6 +179,110 @@ paths:
               schema:
                 $ref: '#/components/schemas/Invalidlogin1'
       deprecated: false
+  /orders/list/2:
+    get:
+      tags:
+      - delilah-resto-api
+      summary: List User
+      operationId: ListUser
+      parameters:
+      - name: Authorization
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3JfaWQiOjIsInVzcl9uYW1lIjoiQWRtaW5pc3RyYWRvciIsImFkbWluIjoxLCJpYXQiOjE2MTg0MjY3ODN9.uyIk3SthLlkaOKroCT7Q_Nk2KURpsDxrDIjpaoDpIBw
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Powered-By:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Express
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '224'
+            ETag:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: W/"e0-ra2zF9TVGdDh8bgR2x9EFnbNUcw"
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Thu, 22 Apr 2021 09:18:58 GMT
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: keep-alive
+            Keep-Alive:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: timeout=5
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/SucessfullListuserbyadministrator'
+        '403':
+          description: Forbidden
+          headers:
+            X-Powered-By:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Express
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '31'
+            ETag:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: W/"1f-MMJaxtT5fcVgXJrEIeC7OqAXOCo"
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Thu, 22 Apr 2021 09:21:35 GMT
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: keep-alive
+            Keep-Alive:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: timeout=5
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Errorlistuserbycommonuser1'
+      deprecated: false
+      security: []
   /products/list:
     get:
       tags:
@@ -301,7 +405,7 @@ paths:
           content:
             application/json; charset=utf-8:
               schema:
-                $ref: '#/components/schemas/Successfullproductcreationbyadministrator'
+                $ref: '#/components/schemas/Sucessfullproductcreationbyadministrator'
         '403':
           description: Forbidden
           headers:
@@ -1040,6 +1144,81 @@ components:
           type: string
       example:
         message: Username or password invalid.
+    SucessfullListuserbyadministrator:
+      title: SucessfullListuserbyadministrator
+      required:
+      - message
+      - quantity
+      - usr
+      type: object
+      properties:
+        message:
+          type: string
+        quantity:
+          type: integer
+          format: int32
+        usr:
+          type: array
+          items:
+            $ref: '#/components/schemas/Usr'
+          description: ''
+      example:
+        message: Returning user.
+        quantity: 1
+        usr:
+        - usr_id: 2
+          usr_full_name: Administrador
+          usr_phone: 0981234567
+          usr_address: Bv. Artigas 408
+          usr_password: admin
+          usr_email: admin@st.com.uy
+          usr_admin_flag: 1
+    Usr:
+      title: Usr
+      required:
+      - usr_id
+      - usr_full_name
+      - usr_phone
+      - usr_address
+      - usr_password
+      - usr_email
+      - usr_admin_flag
+      type: object
+      properties:
+        usr_id:
+          type: integer
+          format: int32
+        usr_full_name:
+          type: string
+        usr_phone:
+          type: string
+        usr_address:
+          type: string
+        usr_password:
+          type: string
+        usr_email:
+          type: string
+        usr_admin_flag:
+          type: integer
+          format: int32
+      example:
+        usr_id: 2
+        usr_full_name: Administrador
+        usr_phone: 0981234567
+        usr_address: Bv. Artigas 408
+        usr_password: admin
+        usr_email: admin@st.com.uy
+        usr_admin_flag: 1
+    Errorlistuserbycommonuser1:
+      title: Errorlistuserbycommonuser1
+      required:
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+      example:
+        message: Permition denied.
     ListProducts:
       title: ListProducts
       required:
@@ -1163,8 +1342,8 @@ components:
         prd_price: 750
         prd_description: Pollo al spiedo con guarnicación
         prd_image: /home/local/dmenendez/images/pollo.png
-    Successfullproductcreationbyadministrator:
-      title: Successfullproductcreationbyadministrator
+    Sucessfullproductcreationbyadministrator:
+      title: Sucessfullproductcreationbyadministrator
       required:
       - message
       - newProduct

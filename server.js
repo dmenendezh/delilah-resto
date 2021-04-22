@@ -11,6 +11,7 @@ server.use(bodyParser.json());
 /*users routes*/
 server.use('/login', require('./backend/routes/users/login'));
 server.use('/register', require('./backend/routes/users/register'));
+server.use('/users/list', require('./backend/routes/users/list'));//private access
 
 /*products routes */
 server.use('/products/list', require('./backend/routes/products/list'));//public access
